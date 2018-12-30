@@ -1,0 +1,83 @@
+   Feature:registeration
+   Scenario:registration sucessfully with valid credentials
+
+    Given Url "https://demo.nopcommerce.com"
+    When  User click on register button on home page,
+    And   User  enter<gender><first name><last name><dob><email>
+    And   User enter <password><confirm password>
+    And   User click on register button
+    Then  User register sucessfully
+    And   Message displayed registration sucessfull
+
+   Feature:Email
+   Scenario: Registered user send email with product sucessfully
+
+    Given User already registered
+    And   User on home page of "https://demo.nopcommerce.com"
+    When  User click on <log in button> on home page
+    And   User enter<email><password>
+    And   User click on <log in button>on returning customer page
+    And   User select any product
+    And   User click on <email a friend button>
+    And   User enter <friend email><your email address><message>
+    And   User click on<send email button>
+    Then  User able to send email
+    And   Email sent sucessfully message should display
+
+   Feature: Email
+   Scenario: Unregistered user not able to sent email
+
+   Given User on home page of "https://demo.nopcommerce.com"
+   When  User click on<apparel><shoes>
+   And   User click on<Nike Floral Roshe Customized Running Shoes>
+   And   User click on <email a friend button>
+   And   User enter <friend email><your email address><message>
+   And   User click on<send email button>
+   Then  User not able to send the email
+   And   Error message should displayed
+
+
+   Feature:Accepect terms and condition
+   Scenario: User needed to accept terms and conditions
+
+  Given  User already on home page of "https://demo.nopcommerce.com"
+  When   User click on<books>
+  And    Click on <add to cart> of selected book
+  And    User click on <shopping cart>
+  And    User click on<checkout button>without accepting terms and condition
+  Then   User not able to do <checkout>
+  And    Warning message displayed to accept terms and conditions
+
+     Feature:Registration
+     Scenario: Buying product sucessfully action
+
+    Given User already registered and on home page of "https://demo.nopcommerce.com"
+    When  User click on <log in button> on home page
+    And   User enter<email><password>And  User click on <log in button>on returning customer page
+    And   User select any product
+    And   Click on <add to cart> of selected product
+    And   User click on <shopping cart>
+    And   User click on<checkout button>< accepting terms and condition>
+    And   User enter <address>
+    And   User click on <continue button>on checkout page
+    And   User click on<ground shipping method>
+    And   User click on <continue button>
+    And   User click on <credit card>click on <continue button>
+    And   User select card <visa>enter details <cardholder name><card number><expiry date><cvv no>
+    And   User click on <continue button>
+    And   User click on <confirm button>
+    Then  User should be able to buy product
+    And   sucess message
+    And   order number should displayed
+
+
+    Feature:sort by
+    Scenario: Sort by price high to low flow
+
+     Given User already on home page of "https://demo.nopcommerce.com"
+     When  User click on <computers>
+     And   User click on <notebook>
+     And   User click on sort by<high to low price>
+     Then  produts automatically sorted by price in high to low
+
+
