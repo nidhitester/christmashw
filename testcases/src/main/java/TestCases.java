@@ -20,7 +20,7 @@ public class TestCases{
     private static WebDriver driver ;
     @BeforeMethod
     public void open_browser(){
-        System.setProperty("webdriver.chrome.driver","C:\\christmashw\\testcases\\src\\main\\java\\ChromeDriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","src\\main\\java\\ChromeDriver\\chromedriver.exe");
        driver = new ChromeDriver();
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
